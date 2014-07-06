@@ -50,7 +50,7 @@
         [self.cards removeObjectAtIndex:index];
     }
     
-    NSLog(@"card %@",self.cards);
+    NSLog(@"card number%@",self.cards);
     
     return randomCard;
 }
