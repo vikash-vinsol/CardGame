@@ -49,6 +49,9 @@
         randomCard = self.cards[index];
         [self.cards removeObjectAtIndex:index];
     }
+    
+    NSLog(@"card %@",self.cards);
+    
     return randomCard;
 }
 
