@@ -46,7 +46,7 @@
     
     else
     {
-        Card *card =[self.deck drawRandomCard];
+        Card *card = [self.deck drawRandomCard];
         
             if (card)
             {
