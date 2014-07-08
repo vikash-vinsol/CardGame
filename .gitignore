@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 *.UserInterfaceState.xcuserstate
+=======
+.*xcuserstate
+CardGame.xcodeproj/project.xcworkspace/xcuserdata/vikashsoni.xcuserdatad/UserInterfaceState.xcuserstate
+
+>>>>>>> test_branch
