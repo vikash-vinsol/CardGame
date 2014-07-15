@@ -12,6 +12,27 @@
 @synthesize suit = _suit;
 
 
+-(int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    
+    if ([otherCards count] == 1)
+    {
+        PlayingCard *otherCard = [otherCards firstObject];
+        if ([self.suit isEqualToString:otherCard.suit])
+        {
+            score = 1;
+        }
+        
+        else if (self.rank == otherCard.rank)
+        {
+            score = 4;
+        }
+    }
+    
+    return score;
+}
+
 -(NSString *)contents
 {
     NSArray *rankString = [PlayingCard rankString];
@@ -36,8 +57,6 @@
 
 -(void)setSuit:(NSString *)suit
 {
-    NSLog(@"suit %@",suit);
-    
     if (![[PlayingCard validSuits] containsObject:self.suit])
     {
         _suit = suit;
@@ -53,7 +72,6 @@
 {
     if (rank <= [PlayingCard maxRank])
     {
-        NSLog(@"rank %d",rank);
         _rank = rank;
     }
 }
