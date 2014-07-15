@@ -10,6 +10,11 @@
 
 
 @interface CardMatchingGame()
+
+{
+    NSMutableArray *activeCard;
+
+}
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong)    NSMutableArray *cards;
 
@@ -29,6 +34,8 @@
 -(instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck*)deck
 {
     self = [super init];
+    
+    activeCard = [[NSMutableArray alloc] init];
     
     if (self)
     {
@@ -68,7 +75,19 @@ static const int COST_TO_CHOOSE = 1;
     {
         if (card.isChosen)
         {
+            [activeCard addObject:card];
             card.chosen = NO;
+            [activeCard removeAllObjects];
+        }
+        
+        else if ([activeCard count] == 0)
+        {
+            self.score -= COST_TO_CHOOSE;
+            card.matched = NO;
+            
+            card.chosen = YES;
+            [activeCard addObject:card];
+            NSLog(@"%d",[activeCard count]);
         }
         
         else
