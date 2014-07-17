@@ -60,7 +60,7 @@
 
 static const int MISMATCH_PENALTY = 2;
 static const int MATCH_BONUS = 4;
-static const int COST_TO_CHOOSE = 0;
+static const int COST_TO_CHOOSE = 1;
 
 
 -(void)chooseCardAtIndex:(NSUInteger)index
@@ -77,8 +77,6 @@ static const int COST_TO_CHOOSE = 0;
         else if ([activeCards count] < CARDS_IN_GAME - 1)
         {
             self.score -= COST_TO_CHOOSE;
-            card.matched = NO;
-            
             card.chosen = YES;
             [activeCards addObject:card];
         }
@@ -91,10 +89,12 @@ static const int COST_TO_CHOOSE = 0;
                     {
                         self.score += matchScore * MATCH_BONUS;
                         card.matched = YES;
+                        card.chosen = YES;
                         
                         for (Card *activateCards in activeCards)
                         {
                             activateCards.matched = YES;
+                            activateCards.chosen = YES;
                         }
                         
                         [activeCards removeAllObjects];
@@ -112,11 +112,10 @@ static const int COST_TO_CHOOSE = 0;
                         [activeCards addObject:card];
                     }
                         card.chosen = YES;
-
+                        self.score -= COST_TO_CHOOSE;
         }
         
     }
-            self.score -= COST_TO_CHOOSE;
 }
 
 -(Card *)cardAtIndex:(NSUInteger)index
