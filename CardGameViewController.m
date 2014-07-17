@@ -47,11 +47,7 @@
 - (IBAction)cardTouchButton:(UIButton *)sender
 {
     int cardIndex = [self.cardButtons indexOfObject:sender];
-    
-    NSLog(@"card Index %d",cardIndex);
-    
     [self.game chooseCardAtIndex:cardIndex];
-    
     [self updateUI];
 }
 

@@ -4,9 +4,10 @@
 //
 //  Created by Vikash Soni on 27/06/14.
 //  Copyright (c) 2014 Vikash Soni. All rights reserved.
-//
+
 
 #import "PlayingCard.h"
+#import "Constants.h"
 
 @implementation PlayingCard
 @synthesize suit = _suit;
@@ -15,18 +16,29 @@
 -(int)match:(NSArray *)otherCards
 {
     int score = 0;
+    BOOL rankMatch = true;
+    BOOL suitMatch = true;
     
-    if ([otherCards count] == 1)
+    if ([otherCards count] == CARDS_IN_GAME -1)
     {
-        PlayingCard *otherCard = [otherCards firstObject];
-        if ([self.suit isEqualToString:otherCard.suit])
+        for (PlayingCard *compareCard in otherCards)
         {
-            score = 1;
-        }
-        
-        else if (self.rank == otherCard.rank)
-        {
-            score = 4;
+            if (suitMatch && [self.suit isEqualToString:compareCard.suit])
+            {
+                score += 2;
+                rankMatch = false;
+            }
+            
+            else if (rankMatch && self.rank == compareCard.rank)
+            {
+                score += 4;
+                suitMatch = false;
+            }
+            else
+            {
+                score = 0;
+                break;
+            }
         }
     }
     

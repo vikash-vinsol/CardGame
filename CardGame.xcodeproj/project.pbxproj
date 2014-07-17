@@ -75,6 +75,7 @@
 		EB46C5C5195EEC2E00895713 /* white.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white.jpeg; sourceTree = "<group>"; };
 		EB46C5C7196297FB00895713 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		EB46C5C8196297FB00895713 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		EBB1CB991977B5E100C8A35A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 		EB46C56B195DB49000895713 = {
 			isa = PBXGroup;
 			children = (
+				EBB1CB991977B5E100C8A35A /* Constants.h */,
 				EB46C5AC195DB4A300895713 /* Card.h */,
 				EB46C5AD195DB4A300895713 /* Card.m */,
 				EB46C5AF195DB59A00895713 /* Deck.h */,
@@ -502,6 +504,7 @@
 				EB46C5A8195DB49000895713 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB46C5A9195DB49000895713 /* Build configuration list for PBXNativeTarget "CardGameTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +513,7 @@
 				EB46C5AB195DB49000895713 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
